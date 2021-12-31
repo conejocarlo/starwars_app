@@ -1,39 +1,10 @@
 import React from 'react';
-import Home from './src/screens/Home';
+import Navigator from './src/navigation';
 
 const App = () => {
   return (
     <>
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
-      <Home />
+      <Navigator />
     </>
   );
 };
