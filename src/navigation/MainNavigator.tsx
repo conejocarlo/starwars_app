@@ -1,16 +1,18 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Home from 'screens/Home';
-
-import Routes from './routes';
+import HomeNavigator from './HomeNavigator';
 
 const Tab = createBottomTabNavigator();
 
+const screenOptions = {
+  headerShown: false,
+};
+
 const MainNavigator = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name={Routes.Home} component={Home} />
+    <Tab.Navigator screenOptions={screenOptions}>
+      <Tab.Screen name="Home" component={HomeNavigator} />
     </Tab.Navigator>
   );
 };

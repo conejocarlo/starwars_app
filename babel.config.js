@@ -9,6 +9,7 @@ module.exports = {
           screens: './src/screens',
           components: './src/components',
           navigation: './src/navigation',
+          locales: './src/locales',
           api: './src/api',
         },
       },

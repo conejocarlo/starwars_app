@@ -15,3 +15,5 @@ export const fetchPeople = async (): Promise<PeopleResponse> => {
     return { results: [] };
   }
 };
+
+export const fetchPersonDetails = async (url: string) => {};

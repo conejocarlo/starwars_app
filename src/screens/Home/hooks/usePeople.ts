@@ -18,6 +18,7 @@ const usePeople = (): UsePeople => {
         name: person.name,
         url: person.url,
       }));
+
       setPeople(data);
     };
 
