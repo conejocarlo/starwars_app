@@ -11,8 +11,7 @@ export const fetchPeople = async (): Promise<PeopleResponse> => {
 
     return await response.json();
   } catch (e) {
-    console.log('e: ', e);
-    return { results: [] };
+    throw new Error();
   }
 };
 
