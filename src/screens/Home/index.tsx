@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, FlatList, ListRenderItemInfo } from 'react-native';
+import {
+  View,
+  FlatList,
+  ListRenderItemInfo,
+  ActivityIndicator,
+  Button,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { HomeScreenNavigationProps } from 'navigation/HomeNavigator';
@@ -10,7 +16,7 @@ import usePeople from './hooks/usePeople';
 import { People } from './types';
 
 const Home = () => {
-  const { people } = usePeople();
+  const { people, isLoading, isError } = usePeople();
   const navigation = useNavigation<HomeScreenNavigationProps>();
 
   const onItemPress = (url: string) => {
@@ -30,11 +36,18 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={people}
-        renderItem={renderItem}
-        keyExtractor={keyExtractor}
-      />
+      {isError && <Button title="Try Again" onPress={Home} />}
+      {isLoading ? (
+        <View style={[styles.container, styles.horizontal]}>
+          <ActivityIndicator />
+        </View>
+      ) : (
+        <FlatList
+          data={people}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+        />
+      )}
     </View>
   );
 };
