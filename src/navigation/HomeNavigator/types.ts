@@ -13,12 +13,13 @@ export type HomeScreenProps = StackScreenProps<
 >;
 
 export type HomeScreenNavigationProps = HomeScreenProps['navigation'];
-export type HomeScreenRouteProps = HomeScreenProps['navigation'];
+export type HomeScreenRouteProps = HomeScreenProps['route'];
 
 export type PersonDetailsScreenProps = StackScreenProps<
   HomeNavigatorParamList,
   'PersonDetails'
 >;
 
-export type PersonDetailsNavigationProps = PersonDetailsScreenProps['route'];
+export type PersonDetailsNavigationProps =
+  PersonDetailsScreenProps['navigation'];
 export type PersonDetailsRouteProps = PersonDetailsScreenProps['route'];

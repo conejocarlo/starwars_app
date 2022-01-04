@@ -15,4 +15,14 @@ export const fetchPeople = async (): Promise<PeopleResponse> => {
   }
 };
 
-export const fetchPersonDetails = async (url: string) => {};
+export const fetchPersonDetails = async (url: string) => {
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+    });
+
+    return await response.json();
+  } catch (e) {
+    throw new Error();
+  }
+};

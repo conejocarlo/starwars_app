@@ -1,8 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
-import { useRoute } from '@react-navigation/native';
-import { PersonDetailsRouteProps } from 'navigation/HomeNavigator';
-
+import { Text, View, Button, ActivityIndicator } from 'react-native';
+import usePersonDetails from './hooks/usePersonDetails';
 import styles from './styles';
 
 export interface NavigationProps {
@@ -10,9 +8,20 @@ export interface NavigationProps {
 }
 
 const PersonDetails = () => {
-  const { url } = useRoute<PersonDetailsRouteProps>().params;
-  console.log(url);
-  return <View style={styles.container} />;
+  const { personDetails, isLoading, isError } = usePersonDetails();
+
+  return (
+    <View style={styles.container}>
+      {isError && <Button title="Try Again" onPress={PersonDetails} />}
+      {isLoading ? (
+        <View style={[styles.container, styles.horizontal]}>
+          <ActivityIndicator />
+        </View>
+      ) : (
+        <Text>{personDetails}</Text>
+      )}
+    </View>
+  );
 };
 
 export default PersonDetails;
