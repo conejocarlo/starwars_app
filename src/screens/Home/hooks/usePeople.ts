@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 import { fetchPeople } from 'api/people';
 
@@ -7,35 +7,41 @@ import { People } from '../types';
 interface UsePeople {
   people: People[];
   isLoading: boolean;
-  isError: boolean;
+  error: Error | undefined;
+  fetchData: () => Promise<void>;
 }
 
 const usePeople = (): UsePeople => {
   const [people, setPeople] = useState<People[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isError, setIsError] = useState<boolean>(false);
+  const [error, setError] = useState<Error | undefined>(undefined);
 
-  useEffect(() => {
-    setIsLoading(true);
-
-    const fetchData = async () => {
+  const fetchData = useCallback(async () => {
+    try {
       const response = await fetchPeople();
       const data = response.results.map((person: People) => ({
         name: person.name,
         url: person.url,
       }));
-
       setIsLoading(false);
       setPeople(data);
-    };
-
-    fetchData().catch(() => setIsError(true));
+    } catch (e) {
+      setError(new Error('An error has occured'));
+    }
   }, []);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setError(undefined);
+
+    fetchData();
+  }, [fetchData]);
 
   return {
     people,
     isLoading,
-    isError,
+    error,
+    fetchData,
   };
 };
 
