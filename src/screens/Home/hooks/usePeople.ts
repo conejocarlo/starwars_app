@@ -17,6 +17,9 @@ const usePeople = (): UsePeople => {
   const [error, setError] = useState<Error | undefined>(undefined);
 
   const fetchData = useCallback(async () => {
+    setIsLoading(true);
+    setError(undefined);
+
     try {
       const response = await fetchPeople();
       const data = response.results.map((person: People) => ({
@@ -31,9 +34,6 @@ const usePeople = (): UsePeople => {
   }, []);
 
   useEffect(() => {
-    setIsLoading(true);
-    setError(undefined);
-
     fetchData();
   }, [fetchData]);
 
