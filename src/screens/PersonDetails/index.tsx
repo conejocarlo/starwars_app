@@ -4,6 +4,7 @@ import { useRoute } from '@react-navigation/native';
 import { PersonDetailsRouteProps } from 'navigation/HomeNavigator';
 
 import styles from './styles';
+import usePersonDetails from './hooks/usePersonDetails';
 
 export interface NavigationProps {
   url: string;
@@ -11,7 +12,8 @@ export interface NavigationProps {
 
 const PersonDetails = () => {
   const { url } = useRoute<PersonDetailsRouteProps>().params;
-  console.log(url);
+  const { PersonDet } = usePersonDetails();
+  console.log(url + PersonDet);
   return <View style={styles.container} />;
 };
 
