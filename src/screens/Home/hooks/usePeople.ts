@@ -29,6 +29,7 @@ const usePeople = (): UsePeople => {
       setIsLoading(false);
       setPeople(data);
     } catch (e) {
+      setIsLoading(false);
       setError(new Error('An error has occured'));
     }
   }, []);
