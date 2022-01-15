@@ -1,6 +1,9 @@
 const locales = {
   home: {
-    title: 'Home',
+    title: 'People',
+  },
+  ships: {
+    title: 'Ships',
   },
   PeopleDetails: {
     name: 'Name',
