@@ -5,6 +5,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
+  horizontal: {
+    justifyContent: 'space-around',
+    padding: 10,
+  },
 });
 
 export default styles;

@@ -4,14 +4,22 @@ import { PersonDetails } from '../types';
 
 interface UsePersonDetails {
   personDetails: PersonDetails | undefined;
+  isLoading: boolean;
+  error: Error | undefined;
+  fetchData: () => Promise<void>;
 }
 
 const usePersonDetails = (url: string): UsePersonDetails => {
   const [personDetails, setPersonDetails] = useState<PersonDetails | undefined>(
     undefined,
   );
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<Error | undefined>(undefined);
 
   const fetchData = useCallback(async () => {
+    setIsLoading(true);
+    setError(undefined);
+
     try {
       const response = await fetchPersonDetails(url);
       const data: PersonDetails = {
@@ -19,9 +27,11 @@ const usePersonDetails = (url: string): UsePersonDetails => {
         height: response.height,
         gender: response.gender,
       };
+      setIsLoading(false);
       setPersonDetails(data);
     } catch (e) {
-      console.log(e);
+      setIsLoading(false);
+      setError(new Error('An error has occured'));
     }
   }, [url]);
 
@@ -31,6 +41,9 @@ const usePersonDetails = (url: string): UsePersonDetails => {
 
   return {
     personDetails,
+    isLoading,
+    error,
+    fetchData,
   };
 };
 
