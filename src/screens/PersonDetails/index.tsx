@@ -3,6 +3,7 @@ import { Text, View, Button, ActivityIndicator } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { PersonDetailsRouteProps } from 'navigation/HomeNavigator';
 
+import locales from 'locales';
 import styles from './styles';
 import usePeopleDetails from './hooks/usePersonDetails';
 
@@ -28,9 +29,9 @@ const PersonDetails = () => {
         </View>
       ) : (
         <View style={styles.container}>
-          <Text>Name: {personDetails?.name}</Text>
-          <Text>Height: {personDetails?.height}</Text>
-          <Text>Gender: {personDetails?.gender}</Text>
+          <Text>{`${locales.PeopleDetails.name}: ${personDetails?.name}`}</Text>
+          <Text>{`${locales.PeopleDetails.height}: ${personDetails?.height}`}</Text>
+          <Text>{`${locales.PeopleDetails.gender}: ${personDetails?.gender}`}</Text>
         </View>
       )}
     </View>
