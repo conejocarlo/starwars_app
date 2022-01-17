@@ -18,6 +18,7 @@ const ShipDetails = () => {
     error,
     fetchData: refetch,
   } = useShipDetails(url);
+
   console.log(shipDetails);
 
   return (
@@ -29,11 +30,11 @@ const ShipDetails = () => {
         </View>
       )}
       {isLoading ? (
-        <View style={[styles.container, styles.horizontal]}>
+        <View style={styles.horizontal}>
           <ActivityIndicator />
         </View>
       ) : (
-        <View style={styles.container}>
+        <View>
           <Text>{`${locales.ShipDetails.name}: ${shipDetails?.name}`}</Text>
           <Text>{`${locales.ShipDetails.model}: ${shipDetails?.model}`}</Text>
           <Text>{`${locales.ShipDetails.manufacturer}: ${shipDetails?.manufacturer}`}</Text>

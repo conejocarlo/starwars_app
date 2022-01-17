@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeNavigator from './HomeNavigator';
-import ShipNavigator from './ShipNavigator/ShipNavigator';
+import ShipNavigator from './ShipNavigator';
 
 const Tab = createBottomTabNavigator();
 
