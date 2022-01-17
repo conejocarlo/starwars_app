@@ -14,3 +14,16 @@ export const fetchShips = async (): Promise<ShipsResponse> => {
     throw new Error();
   }
 };
+
+export const fetchShipDetails = async (url: string) => {
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    throw new Error();
+  }
+};

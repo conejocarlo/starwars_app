@@ -10,6 +10,11 @@ const locales = {
     height: 'Height',
     gender: 'Gender',
   },
+  ShipDetails: {
+    name: 'Name',
+    model: 'Model',
+    manufacturer: 'Manufacturer',
+  },
 };
 
 export default locales;

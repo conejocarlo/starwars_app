@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   View,
+  Text,
   FlatList,
   ListRenderItemInfo,
   ActivityIndicator,
@@ -36,7 +37,12 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      {!!error && <Button title="Try Again" onPress={refetch} />}
+      {!!error && (
+        <View style={styles.container}>
+          <Text>{error.message}</Text>
+          <Button title="Try Again" onPress={refetch} />
+        </View>
+      )}
       {isLoading ? (
         <View style={[styles.container, styles.horizontal]}>
           <ActivityIndicator />

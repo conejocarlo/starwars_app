@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, ListRenderItemInfo } from 'react-native';
+import {
+  View,
+  Text,
+  ListRenderItemInfo,
+  Button,
+  ActivityIndicator,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ShipsScreenNavigationProps } from 'navigation/ShipNavigator/types';
 import styles from './styles';
@@ -9,11 +15,11 @@ import ListItem from 'components/ListItem';
 import { Ships } from './types';
 
 const ShipsHome = () => {
-  const { ships } = useShips();
+  const { ships, isLoading, error, fetchData: refetch } = useShips();
   const navigation = useNavigation<ShipsScreenNavigationProps>();
 
-  const onItemPress = () => {
-    console.log('pressed');
+  const onItemPress = (url: string) => {
+    navigation.navigate('ShipDetails', { url });
   };
 
   const renderItem = ({ item }: ListRenderItemInfo<Ships>) => (
@@ -29,11 +35,23 @@ const ShipsHome = () => {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={ships}
-        renderItem={renderItem}
-        keyExtractor={keyExtractor}
-      />
+      {!!error && (
+        <View style={styles.container}>
+          <Text>{error.message}</Text>
+          <Button title="Try Again" onPress={refetch} />
+        </View>
+      )}
+      {isLoading ? (
+        <View style={[styles.container, styles.horizontal]}>
+          <ActivityIndicator />
+        </View>
+      ) : (
+        <FlatList
+          data={ships}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+        />
+      )}
     </View>
   );
 };
