@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     padding: 10,
   },
+  titles: {
+    fontFamily: 'StarJedi',
+  },
 });
 
 export default styles;

@@ -16,7 +16,7 @@ const ListItem = ({ title, id, onPress }: Props) => {
 
   return (
     <TouchableOpacity onPress={handleOnPress} style={styles.container}>
-      <Text>{title}</Text>
+      <Text style={styles.titles}>{title}</Text>
     </TouchableOpacity>
   );
 };

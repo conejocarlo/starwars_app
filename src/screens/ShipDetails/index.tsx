@@ -19,8 +19,6 @@ const ShipDetails = () => {
     fetchData: refetch,
   } = useShipDetails(url);
 
-  console.log(shipDetails);
-
   return (
     <View>
       {!!error && (
@@ -34,10 +32,23 @@ const ShipDetails = () => {
           <ActivityIndicator />
         </View>
       ) : (
-        <View>
-          <Text>{`${locales.ShipDetails.name}: ${shipDetails?.name}`}</Text>
-          <Text>{`${locales.ShipDetails.model}: ${shipDetails?.model}`}</Text>
-          <Text>{`${locales.ShipDetails.manufacturer}: ${shipDetails?.manufacturer}`}</Text>
+        <View style={styles.container}>
+          <Text style={styles.titles}>{`${locales.ShipDetails.name}:`}</Text>
+          <Text style={styles.subtitles}>{shipDetails?.name}</Text>
+          <Text style={styles.titles}>{`${locales.ShipDetails.model}:`}</Text>
+          <Text style={styles.subtitles}>{shipDetails?.model}</Text>
+          <Text
+            style={
+              styles.titles
+            }>{`${locales.ShipDetails.manufacturer}:`}</Text>
+          <Text style={styles.subtitles}>{shipDetails?.manufacturer}</Text>
+          <Text style={styles.titles}>{`${locales.ShipDetails.cost}:`}</Text>
+          <Text style={styles.subtitles}>{shipDetails?.cost}</Text>
+          <Text
+            style={styles.titles}>{`${locales.ShipDetails.passengers}:`}</Text>
+          <Text style={styles.subtitles}>{shipDetails?.passengers}</Text>
+          <Text style={styles.titles}>{`${locales.ShipDetails.crew}:`}</Text>
+          <Text style={styles.subtitles}>{shipDetails?.crew}</Text>
         </View>
       )}
     </View>

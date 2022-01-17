@@ -14,6 +14,9 @@ const locales = {
     name: 'Name',
     model: 'Model',
     manufacturer: 'Manufacturer',
+    cost: 'Cost',
+    crew: 'Crew',
+    passengers: 'Passengers',
   },
 };
 

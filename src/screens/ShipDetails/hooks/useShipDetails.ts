@@ -26,6 +26,9 @@ const useShipDetails = (url: string): UseShipDetails => {
         name: response.name,
         model: response.model,
         manufacturer: response.manufacturer,
+        cost: response.cost_in_credits,
+        crew: response.crew,
+        passengers: response.passengers,
       };
       setIsLoading(false);
       setShipDetails(data);

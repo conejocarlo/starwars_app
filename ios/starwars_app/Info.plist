@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +51,14 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>StarJedi-DGRW.ttf</string>
+		<string>StarJediHollow-A4lL.ttf</string>
+		<string>StarJediRounded-jW3R.ttf</string>
+		<string>StarJedi.ttf</string>
+		<string>StarJediHollow.ttf</string>
+		<string>StarJediRounded.ttf</string>
+	</array>
 </dict>
 </plist>

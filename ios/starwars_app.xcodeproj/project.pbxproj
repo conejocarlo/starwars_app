@@ -11,9 +11,12 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		6014A1835C8D4B96A9469774 /* StarJediHollow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 821234AF14F94D799B5B6C9B /* StarJediHollow.ttf */; };
 		6172F2D35A4C3AA820D92908 /* libPods-starwars_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-starwars_app.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-starwars_app-starwars_appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-starwars_app-starwars_appTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		B284B58D7D104B3DA344E168 /* StarJedi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2C261FC1642F9B9DD3092 /* StarJedi.ttf */; };
+		DF656C3392154F159B22130A /* StarJediRounded.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B6E54A70D274B83B7B5D7D3 /* StarJediRounded.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +39,13 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = starwars_app/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = starwars_app/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = starwars_app/main.m; sourceTree = "<group>"; };
+		17C2C261FC1642F9B9DD3092 /* StarJedi.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = StarJedi.ttf; path = ../src/assets/fonts/StarJedi.ttf; sourceTree = "<group>"; };
 		1D0AE47A65C8663E3B452821 /* Pods-starwars_app-starwars_appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starwars_app-starwars_appTests.release.xcconfig"; path = "Target Support Files/Pods-starwars_app-starwars_appTests/Pods-starwars_app-starwars_appTests.release.xcconfig"; sourceTree = "<group>"; };
+		2B6E54A70D274B83B7B5D7D3 /* StarJediRounded.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = StarJediRounded.ttf; path = ../src/assets/fonts/StarJediRounded.ttf; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-starwars_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-starwars_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-starwars_app-starwars_appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starwars_app-starwars_appTests.debug.xcconfig"; path = "Target Support Files/Pods-starwars_app-starwars_appTests/Pods-starwars_app-starwars_appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = starwars_app/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		821234AF14F94D799B5B6C9B /* StarJediHollow.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = StarJediHollow.ttf; path = ../src/assets/fonts/StarJediHollow.ttf; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-starwars_app-starwars_appTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-starwars_app-starwars_appTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A881CF5CF3F2B244570E2A /* Pods-starwars_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starwars_app.debug.xcconfig"; path = "Target Support Files/Pods-starwars_app/Pods-starwars_app.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-starwars_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starwars_app.release.xcconfig"; path = "Target Support Files/Pods-starwars_app/Pods-starwars_app.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +112,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		66DC0AE8256246DBB2C595C2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				17C2C261FC1642F9B9DD3092 /* StarJedi.ttf */,
+				821234AF14F94D799B5B6C9B /* StarJediHollow.ttf */,
+				2B6E54A70D274B83B7B5D7D3 /* StarJediRounded.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +138,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E233CBF5F47BEE60B243DCF8 /* Pods */,
+				66DC0AE8256246DBB2C595C2 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -145,7 +162,6 @@
 				6C97AB639B58BBB4B15BBE30 /* Pods-starwars_app-starwars_appTests.debug.xcconfig */,
 				1D0AE47A65C8663E3B452821 /* Pods-starwars_app-starwars_appTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -245,6 +261,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B284B58D7D104B3DA344E168 /* StarJedi.ttf in Resources */,
+				6014A1835C8D4B96A9469774 /* StarJediHollow.ttf in Resources */,
+				DF656C3392154F159B22130A /* StarJediRounded.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

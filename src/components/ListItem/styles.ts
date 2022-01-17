@@ -8,6 +8,10 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     justifyContent: 'center',
   },
+  titles: {
+    fontFamily: 'StarJedi',
+    color: '#F8E71B',
+  },
 });
 
 export default styles;
