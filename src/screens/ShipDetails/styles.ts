@@ -1,3 +1,4 @@
+import Colors from 'constants/colors';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
   },
   titles: {
     fontSize: 20,
-    color: '#F8E71B',
+    color: Colors.mustard,
     fontFamily: 'StarJediRounded',
   },
   subtitles: {
