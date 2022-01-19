@@ -34,7 +34,7 @@ const FilmsHome = () => {
   );
 
   const keyExtractor = (film: Films) => film.url;
-  console.log(films);
+
   return (
     <View style={styles.containter}>
       {!!error && (

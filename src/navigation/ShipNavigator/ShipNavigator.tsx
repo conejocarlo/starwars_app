@@ -14,7 +14,7 @@ const ShipNavigator = () => {
       <Stack.Screen
         name="ShipsScreen"
         component={ShipsHome}
-        options={{ title: locales.ships.title }}
+        options={{ title: locales.Ships.title }}
       />
       <Stack.Screen name="ShipDetails" component={ShipDetails} />
     </Stack.Navigator>

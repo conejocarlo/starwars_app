@@ -1,5 +1,11 @@
 import React from 'react';
-import { Text, View, Button, ActivityIndicator } from 'react-native';
+import {
+  Text,
+  View,
+  ScrollView,
+  Button,
+  ActivityIndicator,
+} from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { FilmDetailsRouteProps } from 'navigation/FilmNavigator';
 import useFilmDetails from './hooks/useFilmDetails';
@@ -28,30 +34,28 @@ const FilmDetails = () => {
         </View>
       )}
       {isLoading ? (
-        <View style={styles.horizontal}>
+        <View style={styles.loadingContainer}>
           <ActivityIndicator />
         </View>
       ) : (
-        <View style={styles.container}>
+        <ScrollView style={styles.scrollContainer}>
           <Text style={styles.titles}>{`${locales.FilmDetails.title}:`}</Text>
           <Text style={styles.subtitles}>{filmDetails?.title}</Text>
           <Text
-            style={styles.titles}>{`${locales.FilmDetails.episode_id}:`}</Text>
-          <Text style={styles.subtitles}>{filmDetails?.episode_id}</Text>
+            style={styles.titles}>{`${locales.FilmDetails.episodeId}:`}</Text>
+          <Text style={styles.subtitles}>{filmDetails?.episodeId}</Text>
           <Text
             style={styles.titles}>{`${locales.FilmDetails.director}:`}</Text>
           <Text style={styles.subtitles}>{filmDetails?.director}</Text>
           <Text
-            style={
-              styles.titles
-            }>{`${locales.FilmDetails.release_date}:`}</Text>
-          <Text style={styles.subtitles}>{filmDetails?.release_date}</Text>
+            style={styles.titles}>{`${locales.FilmDetails.releaseDate}:`}</Text>
+          <Text style={styles.subtitles}>{filmDetails?.releaseDate}</Text>
           <Text
             style={
               styles.titles
-            }>{`${locales.FilmDetails.opening_crawl}:`}</Text>
-          <Text style={styles.subtitles}>{filmDetails?.opening_crawl}</Text>
-        </View>
+            }>{`${locales.FilmDetails.openingCrawl}:`}</Text>
+          <Text style={styles.subtitles}>{filmDetails?.openingCrawl}</Text>
+        </ScrollView>
       )}
     </View>
   );

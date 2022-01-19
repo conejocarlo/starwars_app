@@ -24,10 +24,10 @@ const useFilmDetails = (url: string): UseFilmDetails => {
       const response = await fetchFilmDetails(url);
       const data: FilmDetails = {
         title: response.title,
-        episode_id: response.episode_id,
+        episodeId: response.episode_id,
         director: response.director,
-        release_date: response.release_date,
-        opening_crawl: response.opening_crawl,
+        releaseDate: response.release_date,
+        openingCrawl: response.opening_crawl,
       };
       setIsLoading(false);
       setFilmDetails(data);

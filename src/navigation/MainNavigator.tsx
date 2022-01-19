@@ -23,7 +23,7 @@ const MainNavigator = () => {
             <View>
               <Image
                 style={styles.icon}
-                source={require('../assets/icons/peopleIcon.png')}
+                source={require('../assets/icons/people-icon.png')}
               />
             </View>
           ),
@@ -37,7 +37,7 @@ const MainNavigator = () => {
             <View>
               <Image
                 style={styles.icon}
-                source={require('../assets/icons/shipsIcon.png')}
+                source={require('../assets/icons/ships-icon.png')}
               />
             </View>
           ),
@@ -51,7 +51,7 @@ const MainNavigator = () => {
             <View>
               <Image
                 style={styles.icon}
-                source={require('../assets/icons/filmsIcon.png')}
+                source={require('../assets/icons/films-icon.png')}
               />
             </View>
           ),

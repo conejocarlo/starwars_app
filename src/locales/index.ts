@@ -1,8 +1,8 @@
 const locales = {
-  home: {
+  Home: {
     title: 'People',
   },
-  ships: {
+  Ships: {
     title: 'Ships',
   },
   PeopleDetails: {
@@ -11,22 +11,22 @@ const locales = {
     gender: 'Gender',
   },
   ShipDetails: {
-    name: 'Name',
-    model: 'Model',
-    manufacturer: 'Manufacturer',
-    cost: 'Cost',
-    crew: 'Crew',
-    passengers: 'Passengers',
+    name: 'name',
+    model: 'model',
+    manufacturer: 'manufacturer',
+    cost: 'cost',
+    crew: 'crew',
+    passengers: 'passengers',
   },
-  films: {
+  Films: {
     title: 'Films',
   },
   FilmDetails: {
-    title: 'Title',
-    episode_id: 'Episode',
-    director: 'Director',
-    release_date: 'Release Date',
-    opening_crawl: 'Opening Crawl',
+    title: 'title',
+    episodeId: 'episode',
+    director: 'director',
+    releaseDate: 'release date',
+    openingCrawl: 'opening crawl',
   },
 };
 
