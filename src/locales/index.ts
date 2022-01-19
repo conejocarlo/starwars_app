@@ -18,6 +18,16 @@ const locales = {
     crew: 'Crew',
     passengers: 'Passengers',
   },
+  films: {
+    title: 'Films',
+  },
+  FilmDetails: {
+    title: 'Title',
+    episode_id: 'Episode',
+    director: 'Director',
+    release_date: 'Release Date',
+    opening_crawl: 'Opening Crawl',
+  },
 };
 
 export default locales;

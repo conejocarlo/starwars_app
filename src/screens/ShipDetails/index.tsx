@@ -20,7 +20,7 @@ const ShipDetails = () => {
   } = useShipDetails(url);
 
   return (
-    <View>
+    <View style={styles.container}>
       {!!error && (
         <View style={styles.container}>
           <Text>{error.message}</Text>

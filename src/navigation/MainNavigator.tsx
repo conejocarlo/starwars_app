@@ -3,6 +3,7 @@ import { View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeNavigator from './HomeNavigator';
 import ShipNavigator from './ShipNavigator';
+import FilmNavigator from './FilmNavigator';
 import styles from './styles';
 
 const Tab = createBottomTabNavigator();
@@ -37,6 +38,20 @@ const MainNavigator = () => {
               <Image
                 style={styles.icon}
                 source={require('../assets/icons/shipsIcon.png')}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Films"
+        component={FilmNavigator}
+        options={{
+          tabBarIcon: () => (
+            <View>
+              <Image
+                style={styles.icon}
+                source={require('../assets/icons/filmsIcon.png')}
               />
             </View>
           ),
