@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import {
   Text,
   View,
@@ -6,9 +6,12 @@ import {
   Button,
   ActivityIndicator,
 } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import styles from './styles';
-import { ShipDetailsRouteProps } from 'navigation/ShipNavigator';
+import {
+  ShipDetailsNavigationProps,
+  ShipDetailsRouteProps,
+} from 'navigation/ShipNavigator';
 import useShipDetails from './hooks/useShipDetails';
 import locales from 'locales';
 
@@ -18,12 +21,18 @@ export interface NavigationProps {
 
 const ShipDetails = () => {
   const { url } = useRoute<ShipDetailsRouteProps>().params;
+  const navigation = useNavigation<ShipDetailsNavigationProps>();
+
   const {
     shipDetails,
     isLoading,
     error,
     fetchData: refetch,
   } = useShipDetails(url);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({ title: shipDetails?.name });
+  });
 
   return (
     <View style={styles.container}>

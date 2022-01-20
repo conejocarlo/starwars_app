@@ -8,6 +8,10 @@ const locales = {
   PeopleDetails: {
     name: 'Name',
     height: 'Height',
+    mass: 'Mass',
+    hairColor: 'Hair Color',
+    eyeColor: 'Eye Color',
+    birthYear: 'Birth Year',
     gender: 'Gender',
   },
   ShipDetails: {

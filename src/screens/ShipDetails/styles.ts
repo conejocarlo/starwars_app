@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
   },
   subtitles: {
     fontSize: 16,
-    fontFamily: 'StarJedi',
     color: 'white',
+    fontFamily: 'StarJedi',
   },
 });
 

@@ -25,6 +25,10 @@ const usePersonDetails = (url: string): UsePersonDetails => {
       const data: PersonDetails = {
         name: response.name,
         height: response.height,
+        mass: response.mass,
+        hairColor: response.hair_color,
+        eyeColor: response.eye_color,
+        birthYear: response.birth_year,
         gender: response.gender,
       };
       setIsLoading(false);

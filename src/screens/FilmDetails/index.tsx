@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import {
   Text,
   View,
@@ -6,8 +6,11 @@ import {
   Button,
   ActivityIndicator,
 } from 'react-native';
-import { useRoute } from '@react-navigation/native';
-import { FilmDetailsRouteProps } from 'navigation/FilmNavigator';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import {
+  FilmDetailsNavigationProps,
+  FilmDetailsRouteProps,
+} from 'navigation/FilmNavigator';
 import useFilmDetails from './hooks/useFilmDetails';
 import styles from './styles';
 import locales from 'locales';
@@ -18,12 +21,18 @@ export interface NavigationProps {
 
 const FilmDetails = () => {
   const { url } = useRoute<FilmDetailsRouteProps>().params;
+  const navigation = useNavigation<FilmDetailsNavigationProps>();
+
   const {
     filmDetails,
     isLoading,
     error,
     fetchData: refetch,
   } = useFilmDetails(url);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({ title: filmDetails?.title });
+  }, [navigation, filmDetails?.title]);
 
   return (
     <View style={styles.container}>
