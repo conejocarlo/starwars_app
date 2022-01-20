@@ -1,5 +1,11 @@
 import React from 'react';
-import { Text, View, Button, ActivityIndicator } from 'react-native';
+import {
+  Text,
+  View,
+  ScrollView,
+  Button,
+  ActivityIndicator,
+} from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import styles from './styles';
 import { ShipDetailsRouteProps } from 'navigation/ShipNavigator';
@@ -22,17 +28,17 @@ const ShipDetails = () => {
   return (
     <View style={styles.container}>
       {!!error && (
-        <View style={styles.container}>
+        <View style={styles.scrollContainer}>
           <Text>{error.message}</Text>
           <Button title="Try Again" onPress={refetch} />
         </View>
       )}
       {isLoading ? (
-        <View style={styles.horizontal}>
+        <View style={styles.loadingContainer}>
           <ActivityIndicator />
         </View>
       ) : (
-        <View style={styles.container}>
+        <ScrollView style={styles.scrollContainer}>
           <Text style={styles.titles}>{`${locales.ShipDetails.name}:`}</Text>
           <Text style={styles.subtitles}>{shipDetails?.name}</Text>
           <Text style={styles.titles}>{`${locales.ShipDetails.model}:`}</Text>
@@ -49,7 +55,7 @@ const ShipDetails = () => {
           <Text style={styles.subtitles}>{shipDetails?.passengers}</Text>
           <Text style={styles.titles}>{`${locales.ShipDetails.crew}:`}</Text>
           <Text style={styles.subtitles}>{shipDetails?.crew}</Text>
-        </View>
+        </ScrollView>
       )}
     </View>
   );

@@ -28,7 +28,7 @@ const FilmDetails = () => {
   return (
     <View style={styles.container}>
       {!!error && (
-        <View style={styles.container}>
+        <View style={styles.scrollContainer}>
           <Text>{error.message}</Text>
           <Button title="Try Again" onPress={refetch} />
         </View>

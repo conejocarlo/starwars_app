@@ -8,7 +8,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: 'black',
   },
-  horizontal: {
+  scrollContainer: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: 'black',
+  },
+  loadingContainer: {
     justifyContent: 'space-around',
     padding: 10,
   },
