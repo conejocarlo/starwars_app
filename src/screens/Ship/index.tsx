@@ -25,7 +25,7 @@ const ShipsHome = () => {
   const renderItem = ({ item }: ListRenderItemInfo<Ships>) => (
     <ListItem
       key={item.url}
-      title={item.name}
+      title={item.name.toLowerCase()}
       id={item.url}
       onPress={onItemPress}
     />

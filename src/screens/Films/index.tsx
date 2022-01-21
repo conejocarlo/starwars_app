@@ -27,7 +27,7 @@ const FilmsHome = () => {
   const renderItem = ({ item }: ListRenderItemInfo<Films>) => (
     <ListItem
       key={item.url}
-      title={item.title}
+      title={item.title.toLowerCase()}
       id={item.url}
       onPress={onItemPress}
     />

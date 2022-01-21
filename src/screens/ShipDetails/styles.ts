@@ -21,11 +21,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: Colors.mustard,
     fontFamily: 'StarJediRounded',
+    textTransform: 'lowercase',
   },
   subtitles: {
     fontSize: 16,
     color: 'white',
     fontFamily: 'StarJedi',
+    textTransform: 'lowercase',
   },
 });
 
