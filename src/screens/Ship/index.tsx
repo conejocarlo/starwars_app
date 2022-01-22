@@ -2,29 +2,27 @@ import React from 'react';
 import {
   View,
   Text,
-  FlatList,
   ListRenderItemInfo,
-  ActivityIndicator,
   Button,
+  ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-import { HomeScreenNavigationProps } from 'navigation/HomeNavigator';
-import ListItem from 'components/ListItem';
-
+import { ShipsScreenNavigationProps } from 'navigation/ShipNavigator/types';
 import styles from './styles';
-import usePeople from './hooks/usePeople';
-import { People } from './types';
+import useShips from './hooks/useShips';
+import { FlatList } from 'react-native-gesture-handler';
+import ListItem from 'components/ListItem';
+import { Ships } from './types';
 
-const Home = () => {
-  const { people, isLoading, error, fetchData: refetch } = usePeople();
-  const navigation = useNavigation<HomeScreenNavigationProps>();
+const ShipsHome = () => {
+  const { ships, isLoading, error, fetchData: refetch } = useShips();
+  const navigation = useNavigation<ShipsScreenNavigationProps>();
 
   const onItemPress = (url: string) => {
-    navigation.navigate('PersonDetails', { url });
+    navigation.navigate('ShipDetails', { url });
   };
 
-  const renderItem = ({ item }: ListRenderItemInfo<People>) => (
+  const renderItem = ({ item }: ListRenderItemInfo<Ships>) => (
     <ListItem
       key={item.url}
       title={item.name.toLowerCase()}
@@ -33,7 +31,7 @@ const Home = () => {
     />
   );
 
-  const keyExtractor = (person: People) => person.url;
+  const keyExtractor = (ship: Ships) => ship.url;
 
   return (
     <View style={styles.container}>
@@ -49,7 +47,7 @@ const Home = () => {
         </View>
       ) : (
         <FlatList
-          data={people}
+          data={ships}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
         />
@@ -58,4 +56,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ShipsHome;

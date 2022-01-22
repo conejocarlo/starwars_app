@@ -9,47 +9,47 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { HomeScreenNavigationProps } from 'navigation/HomeNavigator';
+import { FilmScreenNavigationProps } from 'navigation/FilmNavigator';
 import ListItem from 'components/ListItem';
 
 import styles from './styles';
-import usePeople from './hooks/usePeople';
-import { People } from './types';
+import useFilms from './hooks/useFilms';
+import { Films } from './types';
 
-const Home = () => {
-  const { people, isLoading, error, fetchData: refetch } = usePeople();
-  const navigation = useNavigation<HomeScreenNavigationProps>();
+const FilmsHome = () => {
+  const { films, isLoading, error, fetchData: refetch } = useFilms();
+  const navigation = useNavigation<FilmScreenNavigationProps>();
 
   const onItemPress = (url: string) => {
-    navigation.navigate('PersonDetails', { url });
+    navigation.navigate('FilmDetails', { url });
   };
 
-  const renderItem = ({ item }: ListRenderItemInfo<People>) => (
+  const renderItem = ({ item }: ListRenderItemInfo<Films>) => (
     <ListItem
       key={item.url}
-      title={item.name.toLowerCase()}
+      title={item.title.toLowerCase()}
       id={item.url}
       onPress={onItemPress}
     />
   );
 
-  const keyExtractor = (person: People) => person.url;
+  const keyExtractor = (film: Films) => film.url;
 
   return (
-    <View style={styles.container}>
+    <View style={styles.containter}>
       {!!error && (
-        <View style={styles.container}>
+        <View style={styles.containter}>
           <Text>{error.message}</Text>
           <Button title="Try Again" onPress={refetch} />
         </View>
       )}
       {isLoading ? (
-        <View style={[styles.container, styles.horizontal]}>
+        <View style={[styles.containter, styles.horizontal]}>
           <ActivityIndicator />
         </View>
       ) : (
         <FlatList
-          data={people}
+          data={films}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
         />
@@ -58,4 +58,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default FilmsHome;

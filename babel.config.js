@@ -11,6 +11,8 @@ module.exports = {
           navigation: './src/navigation',
           locales: './src/locales',
           api: './src/api',
+          constants: './src/constants',
+          assets: './src/assets',
         },
       },
     ],

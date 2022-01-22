@@ -1,9 +1,10 @@
-import Colors from 'constants/colors';
 import { StyleSheet } from 'react-native';
+import Colors from 'constants/colors';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 10,
     justifyContent: 'space-around',
     backgroundColor: 'black',
   },
@@ -24,8 +25,8 @@ const styles = StyleSheet.create({
   },
   subtitles: {
     fontSize: 16,
-    color: 'white',
     fontFamily: 'StarJedi',
+    color: 'white',
     textTransform: 'lowercase',
   },
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
 
@@ -16,7 +16,7 @@ const ListItem = ({ title, id, onPress }: Props) => {
 
   return (
     <TouchableOpacity onPress={handleOnPress} style={styles.container}>
-      <Text>{title}</Text>
+      <Text style={styles.titles}>{title}</Text>
     </TouchableOpacity>
   );
 };
