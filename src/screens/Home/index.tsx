@@ -13,11 +13,13 @@ import { HomeScreenNavigationProps } from 'navigation/HomeNavigator';
 import ListItem from 'components/ListItem';
 
 import styles from './styles';
-import usePeople from './hooks/usePeople';
 import { People } from './types';
+import { baseURL } from 'api/config';
+import useFetch from 'hooks/useFetch';
 
 const Home = () => {
-  const { people, isLoading, error, fetchData: refetch } = usePeople();
+  const homeURL = `${baseURL}/people`;
+  const { data, isLoading, error, fetchData: refetch } = useFetch(homeURL);
   const navigation = useNavigation<HomeScreenNavigationProps>();
 
   const onItemPress = (url: string) => {
@@ -49,7 +51,7 @@ const Home = () => {
         </View>
       ) : (
         <FlatList
-          data={people}
+          data={data}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
         />
