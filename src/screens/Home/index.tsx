@@ -20,10 +20,14 @@ const Home = () => {
   const { people, isLoading, error, fetchData: refetch } = usePeople();
   const navigation = useNavigation<HomeScreenNavigationProps>();
 
+  // hay alguna manera que pueda pasar el name en esta funcion y hacer que el titulo del screen se muestre por aqui?
+  // en otro ejemplo vi navigation.push en vez de navigation.navigate, cuando se usa push?
   const onItemPress = (url: string) => {
     navigation.navigate('PersonDetails', { url });
   };
 
+  // como sabias que para hacer render de una lista habia que crear otro componente ListItem?
+  // no se puede hacer la misma lista sin crear un custom component?
   const renderItem = ({ item }: ListRenderItemInfo<People>) => (
     <ListItem
       key={item.url}
@@ -33,6 +37,8 @@ const Home = () => {
     />
   );
 
+  // keyExtractor es siempre una funcion? Se puede usar una libreria que genere un random key?
+  // idealmente la data deberia de venir con un id o key, correcto?
   const keyExtractor = (person: People) => person.url;
 
   return (

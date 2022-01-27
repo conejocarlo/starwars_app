@@ -25,6 +25,7 @@ const PersonDetails = () => {
     fetchData: refetch,
   } = usePeopleDetails(url);
 
+  // esto es lo que quiero lograr en el onItemPress del Home Screen
   useLayoutEffect(() => {
     navigation.setOptions({ title: personDetails?.name });
   }, [navigation, personDetails?.name]);

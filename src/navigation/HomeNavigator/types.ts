@@ -12,6 +12,7 @@ export type HomeScreenProps = StackScreenProps<
   'HomeScreen'
 >;
 
+// me gustaria entender mas la differencia entre navigation y route y porque tengo que definir ambos
 export type HomeScreenNavigationProps = HomeScreenProps['navigation'];
 export type HomeScreenRouteProps = HomeScreenProps['route'];
 

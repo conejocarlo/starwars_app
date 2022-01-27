@@ -21,7 +21,9 @@ const usePeople = (): UsePeople => {
     setError(undefined);
 
     try {
+      // porque hay otro await aqui si ya fetchPeople tiene awaits dentro de su definicion?
       const response = await fetchPeople();
+      // esto se hace para extraer de la data solo lo que es necesario correcto? para tener un array de solo name y url
       const data = response.results.map((person: People) => ({
         name: person.name,
         url: person.url,
@@ -34,6 +36,7 @@ const usePeople = (): UsePeople => {
     }
   }, []);
 
+  // que pasa si este useEffect no se usa? Me gustaria entender eso un poco mas
   useEffect(() => {
     fetchData();
   }, [fetchData]);

@@ -13,6 +13,8 @@ const screenOptions = {
 };
 
 const MainNavigator = () => {
+  // se puede mover la funcion de options a algun otro lado?
+  // crear una constante que este en otro archivo o algo asi?
   return (
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen
