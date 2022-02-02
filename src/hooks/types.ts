@@ -1,4 +1,8 @@
-export interface ApiData {
-  name: string;
-  url: string;
+export enum FetchType {
+  People,
+  PersonDetails,
+  Ships,
+  ShipDetails,
+  Films,
+  FilmDetails,
 }

@@ -1,16 +1,27 @@
 import { useCallback, useEffect, useState } from 'react';
-import { fetchApi } from 'api';
-import { Data } from 'api/types';
+import { FetchType } from './types';
+import { fetchPeople, fetchPersonDetails } from 'api/people';
+import { fetchShipDetails, fetchShips } from 'api/ships';
+import { fetchFilmDetails, fetchFilms } from 'api/films';
 
 interface UseFetch {
-  data: Data[];
+  data?: any;
   isLoading: boolean;
   error: Error | undefined;
   fetchData: () => Promise<void>;
 }
 
-const useFetch = (url: string): UseFetch => {
-  const [data, setData] = useState<Data[]>([]);
+const FetchMap = {
+  [FetchType.People]: fetchPeople,
+  [FetchType.PersonDetails]: fetchPersonDetails,
+  [FetchType.Ships]: fetchShips,
+  [FetchType.ShipDetails]: fetchShipDetails,
+  [FetchType.Films]: fetchFilms,
+  [FetchType.FilmDetails]: fetchFilmDetails,
+};
+
+const useFetch = (fetch: FetchType, url: string = ''): UseFetch => {
+  const [data, setData] = useState<FetchType>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | undefined>(undefined);
 
@@ -19,18 +30,16 @@ const useFetch = (url: string): UseFetch => {
     setError(undefined);
 
     try {
-      const responses = await fetchApi(url);
-      const dataResponse = responses.results.map((point: Data) => ({
-        name: point.name,
-        url: point.url,
-      }));
+      const fetchFunction = FetchMap[fetch];
+      const responses = await fetchFunction(url);
+      const dataResponse = responses.results;
       setIsLoading(false);
       setData(dataResponse);
     } catch (e) {
       setIsLoading(false);
       setError(new Error('An error has occured'));
     }
-  }, [url]);
+  }, [fetch, url]);
 
   useEffect(() => {
     fetchData();
