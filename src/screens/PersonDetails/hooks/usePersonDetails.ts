@@ -15,15 +15,15 @@ const usePersonDetails = (url: string): UsePersonDetails => {
     url,
   );
 
-  const personDetails = data?.map((person: PersonDetails) => ({
-    name: person.name,
-    height: person.height,
-    mass: person.mass,
-    hairColor: person.hairColor,
-    eyeColor: person.eyeColor,
-    birthYear: person.birthYear,
-    gender: person.gender,
-  }));
+  const personDetails = {
+    name: data?.name,
+    height: data?.height,
+    mass: data?.mass,
+    hairColor: data?.hairColor,
+    eyeColor: data?.eyeColor,
+    birthYear: data?.birthYear,
+    gender: data?.gender,
+  };
 
   return {
     personDetails,

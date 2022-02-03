@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
-import { fetchShipDetails } from 'api/ships';
 import { ShipDetails } from '../types';
+import useFetch from 'hooks/useFetch';
+import { FetchType } from 'hooks/types';
 
 interface UseShipDetails {
   shipDetails: ShipDetails | undefined;
@@ -10,39 +10,26 @@ interface UseShipDetails {
 }
 
 const useShipDetails = (url: string): UseShipDetails => {
-  const [shipDetails, setShipDetails] = useState<ShipDetails | undefined>(
-    undefined,
+  const { data, isLoading, error, fetchData } = useFetch(
+    FetchType.ShipDetails,
+    url,
   );
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | undefined>(undefined);
 
-  const fetchData = useCallback(async () => {
-    setIsLoading(true);
-    setError(undefined);
+  const shipDetails = {
+    name: data?.name,
+    model: data?.model,
+    manufacturer: data?.manufacturer,
+    cost: data?.cost_in_credits,
+    crew: data?.crew,
+    passengers: data?.passengers,
+  };
 
-    try {
-      const response = await fetchShipDetails(url);
-      const data: ShipDetails = {
-        name: response.name,
-        model: response.model,
-        manufacturer: response.manufacturer,
-        cost: response.cost_in_credits,
-        crew: response.crew,
-        passengers: response.passengers,
-      };
-      setIsLoading(false);
-      setShipDetails(data);
-    } catch (e) {
-      setIsLoading(false);
-      setError(Error('An error has occured'));
-    }
-  }, [url]);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-
-  return { shipDetails, isLoading, error, fetchData };
+  return {
+    shipDetails,
+    isLoading,
+    error,
+    fetchData,
+  };
 };
 
 export default useShipDetails;

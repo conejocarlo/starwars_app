@@ -31,8 +31,7 @@ const useFetch = (fetch: FetchType, url: string = ''): UseFetch => {
 
     try {
       const fetchFunction = FetchMap[fetch];
-      const responses = await fetchFunction(url);
-      const dataResponse = responses.results;
+      const dataResponse = await fetchFunction(url);
       setIsLoading(false);
       setData(dataResponse);
     } catch (e) {

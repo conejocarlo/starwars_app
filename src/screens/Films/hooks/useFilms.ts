@@ -12,7 +12,9 @@ interface UseFilms {
 const useFilms = (): UseFilms => {
   const { data, isLoading, error, fetchData } = useFetch(FetchType.Films);
 
-  const films = data?.map((film: Films) => ({
+  const filmsResponse = data?.results;
+
+  const films = filmsResponse?.map((film: Films) => ({
     title: film.title,
     url: film.url,
   }));

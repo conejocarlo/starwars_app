@@ -12,7 +12,9 @@ interface UseShips {
 const useShips = (): UseShips => {
   const { data, isLoading, error, fetchData } = useFetch(FetchType.Ships);
 
-  const ships = data?.map((ship: Ships) => ({
+  const shipResponse = data?.results;
+
+  const ships = shipResponse?.map((ship: Ships) => ({
     name: ship.name,
     url: ship.url,
   }));
