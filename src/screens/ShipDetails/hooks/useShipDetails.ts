@@ -1,6 +1,6 @@
 import { ShipDetails } from '../types';
-import useFetch from 'hooks/useFetch';
-import { FetchType } from 'hooks/types';
+import useFetch from 'api/hooks/useFetch';
+import { FetchType } from 'api/types';
 
 interface UseShipDetails {
   shipDetails: ShipDetails | undefined;

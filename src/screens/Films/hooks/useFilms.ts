@@ -1,5 +1,5 @@
-import { FetchType } from 'hooks/types';
-import useFetch from 'hooks/useFetch';
+import { FetchType } from 'api/types';
+import useFetch from 'api/hooks/useFetch';
 import { Films } from '../types';
 
 interface UseFilms {

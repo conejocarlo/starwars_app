@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { FetchType } from './types';
+import { FetchType } from '../types';
 import { fetchPeople, fetchPersonDetails } from 'api/people';
 import { fetchShipDetails, fetchShips } from 'api/ships';
 import { fetchFilmDetails, fetchFilms } from 'api/films';
@@ -21,7 +21,7 @@ const FetchMap = {
 };
 
 const useFetch = (fetch: FetchType, url: string = ''): UseFetch => {
-  const [data, setData] = useState<FetchType>();
+  const [data, setData] = useState<any>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | undefined>(undefined);
 
