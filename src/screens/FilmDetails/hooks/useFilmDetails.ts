@@ -1,6 +1,6 @@
-import { fetchFilmDetails } from 'api/films';
-import { useCallback, useEffect, useState } from 'react';
 import { FilmDetails } from '../types';
+import useFetch from 'api/hooks/useFetch';
+import { FetchType } from 'api/types';
 
 interface UseFilmDetails {
   filmDetails: FilmDetails | undefined;
@@ -10,38 +10,25 @@ interface UseFilmDetails {
 }
 
 const useFilmDetails = (url: string): UseFilmDetails => {
-  const [filmDetails, setFilmDetails] = useState<FilmDetails | undefined>(
-    undefined,
+  const { data, isLoading, error, fetchData } = useFetch(
+    FetchType.FilmDetails,
+    url,
   );
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | undefined>(undefined);
 
-  const fetchData = useCallback(async () => {
-    setIsLoading(true);
-    setError(undefined);
+  const filmDetails = {
+    title: data?.title,
+    episodeId: data?.episode_id,
+    director: data?.director,
+    releaseDate: data?.release_date,
+    openingCrawl: data?.opening_crawl,
+  };
 
-    try {
-      const response = await fetchFilmDetails(url);
-      const data: FilmDetails = {
-        title: response.title,
-        episodeId: response.episode_id,
-        director: response.director,
-        releaseDate: response.release_date,
-        openingCrawl: response.opening_crawl,
-      };
-      setIsLoading(false);
-      setFilmDetails(data);
-    } catch (e) {
-      setIsLoading(false);
-      setError(Error('An error has occured'));
-    }
-  }, [url]);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-
-  return { filmDetails, isLoading, error, fetchData };
+  return {
+    filmDetails,
+    isLoading,
+    error,
+    fetchData,
+  };
 };
 
 export default useFilmDetails;

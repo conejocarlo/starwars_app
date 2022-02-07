@@ -3,6 +3,6 @@ interface Films {
   url: string;
 }
 
-export interface FilmsRespose {
+export interface FilmsResponse {
   results: Films[];
 }

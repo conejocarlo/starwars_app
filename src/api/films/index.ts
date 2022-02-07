@@ -1,7 +1,7 @@
 import { baseURL } from 'api/config';
-import { FilmsRespose } from './types';
+import { FilmsResponse } from './types';
 
-export const fetchFilms = async (): Promise<FilmsRespose> => {
+export const fetchFilms = async (): Promise<FilmsResponse> => {
   const url = `${baseURL}/films`;
 
   try {

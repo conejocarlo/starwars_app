@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
-import { fetchPersonDetails } from 'api/people';
 import { PersonDetails } from '../types';
+import useFetch from 'api/hooks/useFetch';
+import { FetchType } from 'api/types';
 
 interface UsePersonDetails {
   personDetails: PersonDetails | undefined;
@@ -10,38 +10,20 @@ interface UsePersonDetails {
 }
 
 const usePersonDetails = (url: string): UsePersonDetails => {
-  const [personDetails, setPersonDetails] = useState<PersonDetails | undefined>(
-    undefined,
+  const { data, isLoading, error, fetchData } = useFetch(
+    FetchType.PersonDetails,
+    url,
   );
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | undefined>(undefined);
 
-  const fetchData = useCallback(async () => {
-    setIsLoading(true);
-    setError(undefined);
-
-    try {
-      const response = await fetchPersonDetails(url);
-      const data: PersonDetails = {
-        name: response.name,
-        height: response.height,
-        mass: response.mass,
-        hairColor: response.hair_color,
-        eyeColor: response.eye_color,
-        birthYear: response.birth_year,
-        gender: response.gender,
-      };
-      setIsLoading(false);
-      setPersonDetails(data);
-    } catch (e) {
-      setIsLoading(false);
-      setError(new Error('An error has occured'));
-    }
-  }, [url]);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  const personDetails = {
+    name: data?.name,
+    height: data?.height,
+    mass: data?.mass,
+    hairColor: data?.hairColor,
+    eyeColor: data?.eyeColor,
+    birthYear: data?.birthYear,
+    gender: data?.gender,
+  };
 
   return {
     personDetails,

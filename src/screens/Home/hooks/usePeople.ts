@@ -1,7 +1,5 @@
-import { useEffect, useState, useCallback } from 'react';
-
-import { fetchPeople } from 'api/people';
-
+import { FetchType } from 'api/types';
+import useFetch from 'api/hooks/useFetch';
 import { People } from '../types';
 
 interface UsePeople {
@@ -12,31 +10,14 @@ interface UsePeople {
 }
 
 const usePeople = (): UsePeople => {
-  const [people, setPeople] = useState<People[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | undefined>(undefined);
+  const { data, isLoading, error, fetchData } = useFetch(FetchType.People);
 
-  const fetchData = useCallback(async () => {
-    setIsLoading(true);
-    setError(undefined);
+  const peopleResponse = data?.results;
 
-    try {
-      const response = await fetchPeople();
-      const data = response.results.map((person: People) => ({
-        name: person.name,
-        url: person.url,
-      }));
-      setIsLoading(false);
-      setPeople(data);
-    } catch (e) {
-      setIsLoading(false);
-      setError(new Error('An error has occured'));
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  const people = peopleResponse?.map((person: People) => ({
+    name: person.name,
+    url: person.url,
+  }));
 
   return {
     people,

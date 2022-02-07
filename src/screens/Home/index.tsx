@@ -13,8 +13,8 @@ import { HomeScreenNavigationProps } from 'navigation/HomeNavigator';
 import ListItem from 'components/ListItem';
 
 import styles from './styles';
-import usePeople from './hooks/usePeople';
 import { People } from './types';
+import usePeople from './hooks/usePeople';
 
 const Home = () => {
   const { people, isLoading, error, fetchData: refetch } = usePeople();
